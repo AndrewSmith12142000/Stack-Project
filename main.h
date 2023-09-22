@@ -6,13 +6,15 @@
 #ifndef STACKS_MAIN_H
 #define STACKS_MAIN_H
 
-
-#include <stdlib.h>  
-#include <time.h>     
+#include <stdlib.h>   
+#include <cstdlib>
+#include <time.h>    
+#include <ctime>
 #include <iostream>   
 #include <string>     
 #include "functions.h"
-
+#include "stack.h"
+#include "data.h"
 
 
 #endif 
