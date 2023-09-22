@@ -67,7 +67,7 @@ int Stack::getSize() const {
     return top + 1;
 }
 
-// This is for debugger for dump (I know this is the wrong way but will fix this my second response 
+// This is for debugger for dump
 void Stack::dumpStack() const {
     std::cout << "Stack Contents:" << std::endl;
     for (int i = 0; i <= top; ++i) {
