@@ -16,5 +16,8 @@
 #include "stack.h"
 #include "data.h"
 
+using std::cout;
+using std::endl;
+
 
 #endif 
