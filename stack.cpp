@@ -59,3 +59,16 @@ bool Stack::peek(Data& data) {
 bool isEmpty() const {
     return top == -1;
 }
+
+int Stack::getSize() const {
+    return top + 1;
+}
+
+
+void Stack::dumpStack() const {
+    std::cout << "Stack Contents:" << std::endl;
+    for (int i = 0; i <= top; ++i) {
+        std::cout << "ID=" << stack[i]->id << ", Info=" << stack[i]->information << std::endl;
+    }
+    std::cout << "End of Stack Contents" << std::endl;
+}
