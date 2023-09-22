@@ -1,6 +1,9 @@
 /*
- * your header here
- * 
+ Name: Andrew Smith
+ Coding 04
+ Purpose: This file is for the includes, endl, and cout
+ File: main.h
+ *
  */
 
 #ifndef STACKS_MAIN_H
