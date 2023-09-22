@@ -30,6 +30,31 @@ bool Stack::push(int id, const std::string& info) {
     return success; 
 }
 
+bool Stack::pop(Data& data) {
+    bool success = false; 
+    if (!isEmpty()) {
+        data = *stack[top];
+        delete stack[top--];
+        success = true;
+    } 
+	else {
+        data.id = -1;
+        data.information = "";
+    }
+    return success; // 
+}
+
+bool Stack::peek(Data& data) {
+    bool success = false; 
+    if (!isEmpty()) {
+        data = *stack[top];
+        success = true; 
+    } else {
+        data.id = -1;
+        data.information = "";
+    }
+    return success; 
+}
 
 bool isEmpty() const {
     return top == -1;
