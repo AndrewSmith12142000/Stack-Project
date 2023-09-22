@@ -10,8 +10,8 @@ int main(int argc, char **argv) {
     const int stackSize = 10; 
 	const int MULTIPLIER = 2; 
 	
-    void rand_string(std::string* str);
-    std::srand(time(nullptr));
+    void rand_string(string* str);
+    srand(time(nullptr));
 
     int stackSizes = stackSize;
    
@@ -21,183 +21,183 @@ int main(int argc, char **argv) {
             stackSizes = std::stoi(argv[1]);
 
             if (stackSizes < 2) {
-                std::cerr << "Stack size must be 2 or greater. Using default size of 10." << std::endl;
+                std::cerr << "Stack size must be 2 or greater. Using default size of 10." << endl;
                 stackSizes = stackSize; 
             }
         } catch (const std::invalid_argument& e) {
-            std::cerr << "Invalid argument. Please enter an integer for the stack size." << std::endl;
+            std::cerr << "Invalid argument. Please enter an integer for the stack size." << endl;
             return 1; 
         } catch (const std::out_of_range& e) {
-            std::cerr << "Argument out of range. Please enter a smaller integer for the stack size." << std::endl;
+            std::cerr << "Argument out of range. Please enter a smaller integer for the stack size." << endl;
             return 1; 
         }
     }
     Stack stack(stackSizes);
 
     // Test for Empty
-    std::cout << "Beginning tests..." << std::endl << std::endl << "Testing empty operations." << std::endl;
-    std::cout << "=====================================================" << std::endl;
+    cout << "Beginning tests..." << endl << endl << "Testing empty operations." << endl;
+    cout << "=====================================================" << endl;
 
     // Testing isEmpty() on an empty stack
     if (stack.isEmpty()) {
-        std::cout << "Stack is empty" << std::endl;
+        cout << "Stack is empty" << endl;
     } else {
-        std::cout << "Stack is NOT empty" << std::endl;
+        cout << "Stack is NOT empty" << endl;
     }
 
     Data peekedData;
     if (stack.peek(peekedData)) {
-        std::cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << std::endl;
+        cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << endl;
     } else {
-        std::cout << "Peek underflow error: Stack is empty" << std::endl;
+        cout << "Peek underflow error: Stack is empty" << endl;
     }
 
     try {
         Data poppedData;
         stack.pop(poppedData);
-        std::cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << std::endl;
+        cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << endl;
     } catch (const std::exception& e) {
-        std::cout << "Pop underflow error: " << e.what() << std::endl;
+        cout << "Pop underflow error: " << e.what() << endl;
     }
-    std::cout << std::endl;
+    cout << endl;
     
     // Testing for filling and full
 
-    std::cout << "Testing full operations." << std::endl;
-    std::cout << "=====================================================" << std::endl;
+    cout << "Testing full operations." << endl;
+    cout << "=====================================================" << endl;
 
     // Testing filling the stack and overflow
-    std::cout << "Filling stack..." << std::endl;
+    cout << "Filling stack..." << endl;
     for (int i = 0; i < stackSize * MULTIPLIER; i++) {
     int id = i + 1;
-    std::string info;
+    string info;
     rand_string(&info); 
     if (stack.push(id, info)) { 
-        std::cout << "Pushed: ID=" << id << ", Info=" << info << std::endl;
+        cout << "Pushed: ID=" << id << ", Info=" << info << endl;
     } else {
-        std::cout << "Overflow error: ID=" << id << " not pushed" << std::endl;
+        cout << "Overflow error: ID=" << id << " not pushed" << endl;
     }
 }
     std::cout << std::endl;
 
     // Testing isEmpty() on a full stack
     if (stack.isEmpty()) {
-        std::cout << "Stack is empty" << std::endl;
+        cout << "Stack is empty" << endl;
     } else {
-        std::cout << "Stack is NOT empty" << std::endl;
+        cout << "Stack is NOT empty" << endl;
     }
-    std::cout << std::endl;
+    cout << endl;
 
     // Testing for peek and pop on a full stack
     if (stack.peek(peekedData)) {
-        std::cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << std::endl;
+        cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << endl;
     } else {
-        std::cout << "Peek underflow error: Stack is empty" << std::endl;
+        cout << "Peek underflow error: Stack is empty" << endl;
     }
 
     try {
         Data poppedData;
         stack.pop(poppedData);
-        std::cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << std::endl;
+        cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << endl;
     } catch (const std::exception& e) {
-        std::cout << "Pop underflow error: " << e.what() << std::endl;
+        cout << "Pop underflow error: " << e.what() << endl;
     }
-    std::cout << std::endl;
+    cout << endl;
 
     // Dump stack output
-    std::cout << "Dumping stack..." << std::endl;
-    std::cout << "=====================================================" << std::endl;
+    cout << "Dumping stack..." << endl;
+    cout << "=====================================================" << endl;
     stack.dumpStack();
     
       // Empty Test
-    std::cout << "Testing peek and pop, and emptying stack..." << std::endl;
-    std::cout << "=====================================================" << std::endl;
+    cout << "Testing peek and pop, and emptying stack..." << endl;
+    cout << "=====================================================" << endl;
 
     // Testing for popping and peeking 
     for (int i = 0; i < MULTIPLIER * stackSize; i++) {
         if (stack.peek(peekedData)) {
-            std::cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << std::endl;
+            cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << endl;
         } else {
-            std::cout << "Peek underflow error: Stack is empty" << std::endl;
+            cout << "Peek underflow error: Stack is empty" << endl;
         }
 
         try {
             Data poppedData;
             stack.pop(poppedData);
-            std::cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << std::endl;
+            cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << endl;
         } catch (const std::exception& e) {
-            std::cout << "Pop underflow error: " << e.what() << std::endl;
+            cout << "Pop underflow error: " << e.what() << endl;
         }
     }
     std::cout << std::endl;
 
     // Dumping stack output
-    std::cout << "Dumping stack..." << std::endl;
-    std::cout << "=====================================================" << std::endl;
+    cout << "Dumping stack..." << endl;
+    cout << "=====================================================" << endl;
     stack.dumpStack();
 
     // Testing isEmpty
     if (stack.isEmpty()) {
-        std::cout << "Stack is empty" << std::endl;
+        cout << "Stack is empty" << endl;
     } else {
-        std::cout << "Stack is NOT empty" << std::endl;
+        cout << "Stack is NOT empty" << endl;
     }
 
     // Testing for peek and pop on a stack that is empty
     if (stack.peek(peekedData)) {
-        std::cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << std::endl;
+        cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << endl;
     } else {
-        std::cout << "Peek underflow error: Stack is empty" << std::endl;
+        cout << "Peek underflow error: Stack is empty" << endl;
     }
 
     try {
         Data poppedData;
         stack.pop(poppedData);
-        std::cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << std::endl;
+        cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << endl;
     } catch (const std::exception& e) {
-        std::cout << "Pop underflow error: " << e.what() << std::endl;
+        cout << "Pop underflow error: " << e.what() << endl;
     }
-    std::cout << std::endl;
+    cout << endl;
     
      //Testing for mid stack
-    std::cout << "Filling stack halfway and testing the middle of the stack..." << std::endl;
-    std::cout << "============================================================" << std::endl;
+    cout << "Filling stack halfway and testing the middle of the stack..." << endl;
+    cout << "============================================================" << endl;
 
     // filling the stack half way
     for (int i = 0; i < stackSize / 2; i++) {
     int id = i + 1;
-    std::string info;
+    string info;
     rand_string(&info); 
     if (stack.push(id, info)) { 
-        std::cout << "Pushed: ID=" << id << ", Info=" << info << std::endl;
+        cout << "Pushed: ID=" << id << ", Info=" << info << endl;
 	} else {
-        std::cout << "Overflow error: ID=" << id << " not pushed" << std::endl;
+        cout << "Overflow error: ID=" << id << " not pushed" << endl;
     	}
 	}
 	
 	// Generate and push random strings
-	std::cout << "Generating and pushing random strings:" << std::endl;
-	std::cout << "============================================================" << std::endl;
+	cout << "Generating and pushing random strings:" << endl;
+	cout << "============================================================" << endl;
 
 	for (int i = 0; i < stackSize * MULTIPLIER; i++) {
     	int id = i + 1;
-    	std::string info;
+    	string info;
     	rand_string(&info); // Pass a pointer to a string variable
     	if (stack.push(id, info)) {
-    		std::cout << "Pushed: ID=" << id << ", Info=" << info << std::endl;
+    		cout << "Pushed: ID=" << id << ", Info=" << info << endl;
     	} else {
-        	std::cout << "Overflow error: ID=" << id << " not pushed" << std::endl;
+        	cout << "Overflow error: ID=" << id << " not pushed" << endl;
     	}
 	}
 
 
-    std::cout << "Testing rand_string:" << std::endl;
-    std::cout << "=====================================================" << std::endl;
+    cout << "Testing rand_string:" << endl;
+    cout << "=====================================================" << endl;
 
     for (int i = 0; i < 10; ++i) {
-        std::string randomStr;
+        string randomStr;
         rand_string(&randomStr);
-        std::cout << "Random String " << i << ": " << randomStr << std::endl;
+        cout << "Random String " << i << ": " << randomStr << endl;
     }
 
     return 0;
