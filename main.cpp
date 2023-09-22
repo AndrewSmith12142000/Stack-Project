@@ -158,5 +158,23 @@ int main(int argc, char **argv) {
         std::cout << "Pop underflow error: " << e.what() << std::endl;
     }
     std::cout << std::endl;
+    
+     //Testing for mid stack
+    std::cout << "Filling stack halfway and testing the middle of the stack..." << std::endl;
+    std::cout << "============================================================" << std::endl;
+
+    // filling the stack half way
+    for (int i = 0; i < stackSize / 2; i++) {
+    int id = i + 1;
+    std::string info;
+    rand_string(&info); 
+    if (stack.push(id, info)) { 
+        std::cout << "Pushed: ID=" << id << ", Info=" << info << std::endl;
+	} else {
+        std::cout << "Overflow error: ID=" << id << " not pushed" << std::endl;
+    	}
+	}
+	
+	
 
 }
