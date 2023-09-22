@@ -1,6 +1,9 @@
 /*
- * Your comment header here
- * modify this file as needed to complete the assignment
+ Name: Andrew Smith
+ Coding 04
+ Purpose: This file shows the stacks
+ File: stack.cpp
+ *
  */
 
 
@@ -64,7 +67,7 @@ int Stack::getSize() const {
     return top + 1;
 }
 
-
+// This is for debugger for dump (I know this is the wrong way but will fix this my second response 
 void Stack::dumpStack() const {
     std::cout << "Stack Contents:" << std::endl;
     for (int i = 0; i <= top; ++i) {
