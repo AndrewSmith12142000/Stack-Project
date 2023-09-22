@@ -1,6 +1,9 @@
 /*
- * Your comment header here
- * modify this file as needed to complete the assignment
+ Name: Andrew Smith
+ Coding 04
+ Purpose: This shows the class of the stacks being used
+ File: stack.h
+ *
  */
 
 #ifndef STACK_H
