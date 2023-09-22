@@ -1,6 +1,9 @@
 /*
- * Your comment header here
- * modify this file as needed to complete the assignment
+ Name: Andrew Smith
+ Coding 04
+ Purpose: This file represents the function of a random character generator
+ File: functions.cpp
+ *
  */
 
 #include "functions.h"
