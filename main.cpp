@@ -32,4 +32,81 @@ int main(int argc, char **argv) {
             return 1; 
         }
     }
+    Stack stack(stackSizes);
+
+    // Test for Empty
+    std::cout << "Beginning tests..." << std::endl << std::endl << "Testing empty operations." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+
+    // Testing isEmpty() on an empty stack
+    if (stack.isEmpty()) {
+        std::cout << "Stack is empty" << std::endl;
+    } else {
+        std::cout << "Stack is NOT empty" << std::endl;
+    }
+
+    Data peekedData;
+    if (stack.peek(peekedData)) {
+        std::cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << std::endl;
+    } else {
+        std::cout << "Peek underflow error: Stack is empty" << std::endl;
+    }
+
+    try {
+        Data poppedData;
+        stack.pop(poppedData);
+        std::cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Pop underflow error: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+    
+    // Testing for filling and full
+
+    std::cout << "Testing full operations." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+
+    // Testing filling the stack and overflow
+    std::cout << "Filling stack..." << std::endl;
+    for (int i = 0; i < stackSize * MULTIPLIER; i++) {
+    int id = i + 1;
+    std::string info;
+    rand_string(&info); 
+    if (stack.push(id, info)) { 
+        std::cout << "Pushed: ID=" << id << ", Info=" << info << std::endl;
+    } else {
+        std::cout << "Overflow error: ID=" << id << " not pushed" << std::endl;
+    }
+}
+    std::cout << std::endl;
+
+    // Testing isEmpty() on a full stack
+    if (stack.isEmpty()) {
+        std::cout << "Stack is empty" << std::endl;
+    } else {
+        std::cout << "Stack is NOT empty" << std::endl;
+    }
+    std::cout << std::endl;
+
+    // Testing for peek and pop on a full stack
+    if (stack.peek(peekedData)) {
+        std::cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << std::endl;
+    } else {
+        std::cout << "Peek underflow error: Stack is empty" << std::endl;
+    }
+
+    try {
+        Data poppedData;
+        stack.pop(poppedData);
+        std::cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Pop underflow error: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+
+    // Dump stack output
+    std::cout << "Dumping stack..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    stack.dumpStack();
+
 }
