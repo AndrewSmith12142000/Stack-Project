@@ -56,7 +56,7 @@ bool Stack::peek(Data& data) {
     return success; 
 }
 
-bool isEmpty() const {
+bool Stack::isEmpty() const {
     return top == -1;
 }
 
