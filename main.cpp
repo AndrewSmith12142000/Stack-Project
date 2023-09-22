@@ -1,6 +1,9 @@
 /*
- * your header here
- * 
+ Name: Andrew Smith
+ Coding 04
+ Purpose: This is suppose to show the output of the stack and shows if its successfull or not
+ File: main.cpp
+ *
  */
 
 #include "main.h"
