@@ -108,5 +108,55 @@ int main(int argc, char **argv) {
     std::cout << "Dumping stack..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     stack.dumpStack();
+    
+      // Empty Test
+    std::cout << "Testing peek and pop, and emptying stack..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+
+    // Testing for popping and peeking 
+    for (int i = 0; i < MULTIPLIER * stackSize; i++) {
+        if (stack.peek(peekedData)) {
+            std::cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << std::endl;
+        } else {
+            std::cout << "Peek underflow error: Stack is empty" << std::endl;
+        }
+
+        try {
+            Data poppedData;
+            stack.pop(poppedData);
+            std::cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << std::endl;
+        } catch (const std::exception& e) {
+            std::cout << "Pop underflow error: " << e.what() << std::endl;
+        }
+    }
+    std::cout << std::endl;
+
+    // Dumping stack output
+    std::cout << "Dumping stack..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    stack.dumpStack();
+
+    // Testing isEmpty
+    if (stack.isEmpty()) {
+        std::cout << "Stack is empty" << std::endl;
+    } else {
+        std::cout << "Stack is NOT empty" << std::endl;
+    }
+
+    // Testing for peek and pop on a stack that is empty
+    if (stack.peek(peekedData)) {
+        std::cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << std::endl;
+    } else {
+        std::cout << "Peek underflow error: Stack is empty" << std::endl;
+    }
+
+    try {
+        Data poppedData;
+        stack.pop(poppedData);
+        std::cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Pop underflow error: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
 
 }
