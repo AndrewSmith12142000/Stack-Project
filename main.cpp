@@ -175,6 +175,30 @@ int main(int argc, char **argv) {
     	}
 	}
 	
-	
+	// Generate and push random strings
+	std::cout << "Generating and pushing random strings:" << std::endl;
+	std::cout << "============================================================" << std::endl;
 
+	for (int i = 0; i < stackSize * MULTIPLIER; i++) {
+    	int id = i + 1;
+    	std::string info;
+    	rand_string(&info); // Pass a pointer to a string variable
+    	if (stack.push(id, info)) {
+    		std::cout << "Pushed: ID=" << id << ", Info=" << info << std::endl;
+    	} else {
+        	std::cout << "Overflow error: ID=" << id << " not pushed" << std::endl;
+    	}
+	}
+
+
+    std::cout << "Testing rand_string:" << std::endl;
+    std::cout << "=====================================================" << std::endl;
+
+    for (int i = 0; i < 10; ++i) {
+        std::string randomStr;
+        rand_string(&randomStr);
+        std::cout << "Random String " << i << ": " << randomStr << std::endl;
+    }
+
+    return 0;
 }
