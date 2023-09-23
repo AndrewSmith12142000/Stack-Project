@@ -9,6 +9,9 @@
 #ifndef STACKS_MAIN_H
 #define STACKS_MAIN_H
 
+#define STACKSIZE 10
+#define MULTIPLIER 2
+
 #include <stdlib.h>   
 #include <cstdlib>
 #include <time.h>    
