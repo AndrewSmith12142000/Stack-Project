@@ -9,14 +9,11 @@
 #include "main.h"
 
 int main(int argc, char **argv) {
-    
-    const int stackSize = 10; 
-	const int MULTIPLIER = 2; 
 	
     void rand_string(string* str);
     srand(time(nullptr));
 
-    int stackSizes = stackSize;
+    int stackSizes = STACKSIZE;
    
     // Check if a command line argument
     if (argc > 1) {
@@ -25,7 +22,7 @@ int main(int argc, char **argv) {
 
             if (stackSizes < 2) {
                 std::cerr << "Stack size must be 2 or greater. Using default size of 10." << endl;
-                stackSizes = stackSize; 
+                stackSizes = STACKSIZE; 
             }
         } catch (const std::invalid_argument& e) {
             std::cerr << "Invalid argument. Please enter an integer for the stack size." << endl;
@@ -71,7 +68,7 @@ int main(int argc, char **argv) {
 
     // Testing filling the stack and overflow
     cout << "Filling stack..." << endl;
-    for (int i = 0; i < stackSize * MULTIPLIER; i++) {
+    for (int i = 0; i < STACKSIZE * MULTIPLIER; i++) {
     int id = i + 1;
     string info;
     rand_string(&info); 
@@ -117,7 +114,7 @@ int main(int argc, char **argv) {
     cout << "=====================================================" << endl;
 
     // Testing for popping and peeking 
-    for (int i = 0; i < MULTIPLIER * stackSize; i++) {
+    for (int i = 0; i < MULTIPLIER * STACKSIZE; i++) {
         if (stack.peek(peekedData)) {
             cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << endl;
         } else {
@@ -167,7 +164,7 @@ int main(int argc, char **argv) {
     cout << "============================================================" << endl;
 
     // filling the stack half way
-    for (int i = 0; i < stackSize / 2; i++) {
+    for (int i = 0; i < STACKSIZE / 2; i++) {
     int id = i + 1;
     string info;
     rand_string(&info); 
@@ -182,7 +179,7 @@ int main(int argc, char **argv) {
 	cout << "Generating and pushing random strings:" << endl;
 	cout << "============================================================" << endl;
 
-	for (int i = 0; i < stackSize * MULTIPLIER; i++) {
+	for (int i = 0; i < STACKSIZE * MULTIPLIER; i++) {
     	int id = i + 1;
     	string info;
     	rand_string(&info); // Pass a pointer to a string variable
