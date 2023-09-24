@@ -42,7 +42,7 @@ bool Stack::pop(Data& data) {
         data.id = -1;
         data.information = "";
     }
-    return success; // 
+    return success; 
 }
 
 bool Stack::peek(Data& data) {
