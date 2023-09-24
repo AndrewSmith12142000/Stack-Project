@@ -7,7 +7,6 @@
  */
 
 #include "stack.h"
-#include <iostream>
 
 Stack::Stack(int size) : size(size), top(-1) {
     if (size < 2) {
@@ -66,11 +65,3 @@ int Stack::getSize() const {
     return size + 1;
 }
 
-// This is for debugger for dump
-void Stack::dumpStack() const {
-    std::cout << "Stack Contents:" << std::endl;
-    for (int i = 0; i <= top; ++i) {
-        std::cout << "ID=" << stack[i]->id << ", Info=" << stack[i]->information << std::endl;
-    }
-    std::cout << "End of Stack Contents" << std::endl;
-}
