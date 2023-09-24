@@ -11,6 +11,9 @@
 
 #define STACKSIZE 10
 #define MULTIPLIER 2
+#define CHOICES 6
+#define RANDOM_MULTIPLIER 10
+#define MAX_INT 100000
 
 #include <stdlib.h>   
 #include <cstdlib>
@@ -21,6 +24,7 @@
 #include "functions.h"
 #include "stack.h"
 #include "data.h"
+
 
 using std::cout;
 using std::endl;
