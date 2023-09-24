@@ -191,6 +191,13 @@ int main(int argc, char **argv) {
     	}
 	}
     
+    //Empty stack before random test
+    while (!stack.isEmpty()) {
+    Data poppedData;
+    stack.pop(poppedData);
+	}
+    
+    
     int choice = rand() % CHOICES + 1;
     string info; // Declare 'info' variable outside the switch statement
 	int id; 
