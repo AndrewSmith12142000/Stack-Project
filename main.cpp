@@ -191,7 +191,7 @@ int main(int argc, char **argv) {
     	}
 	}
     
-    //Empty stack before random test
+    //Empty stack before random test 
     while (!stack.isEmpty()) {
     Data poppedData;
     stack.pop(poppedData);
