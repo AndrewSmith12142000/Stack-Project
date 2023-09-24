@@ -16,7 +16,7 @@ class Stack {
 
 public:
 
-    Stack(int size = 10);
+    Stack(int size);
     ~Stack();
 
     bool push(int id, const std::string& info);
