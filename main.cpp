@@ -8,8 +8,8 @@
 
 #include "main.h"
 
+
 int main(int argc, char **argv) {
-	
     void rand_string(string* str);
     srand(time(nullptr));
 
@@ -26,12 +26,16 @@ int main(int argc, char **argv) {
             }
         } catch (const std::invalid_argument& e) {
             std::cerr << "Invalid argument. Please enter an integer for the stack size." << endl;
-            return 1; 
+            
         } catch (const std::out_of_range& e) {
             std::cerr << "Argument out of range. Please enter a smaller integer for the stack size." << endl;
-            return 1; 
+            
         }
+    } else {
+        std::cerr << "No stack size argument provided. Please enter an integer for the stack size." << endl;
+        return 1; // Exit with an error code
     }
+    
     Stack stack(stackSizes);
 
     // Test for Empty
@@ -162,6 +166,7 @@ int main(int argc, char **argv) {
      //Testing for mid stack
     cout << "Filling stack halfway and testing the middle of the stack..." << endl;
     cout << "============================================================" << endl;
+                                                                                   
 
     // filling the stack half way
     for (int i = 0; i < STACKSIZE / 2; i++) {
@@ -174,10 +179,12 @@ int main(int argc, char **argv) {
         cout << "Overflow error: ID=" << id << " not pushed" << endl;
     	}
 	}
-	
+	cout << endl;
 	// Generate and push random strings
 	cout << "Generating and pushing random strings:" << endl;
 	cout << "============================================================" << endl;
+	
+	
 
 	for (int i = 0; i < STACKSIZE * MULTIPLIER; i++) {
     	int id = i + 1;
@@ -189,16 +196,54 @@ int main(int argc, char **argv) {
         	cout << "Overflow error: ID=" << id << " not pushed" << endl;
     	}
 	}
-
-
-    cout << "Testing rand_string:" << endl;
-    cout << "=====================================================" << endl;
-
-    for (int i = 0; i < 10; ++i) {
-        string randomStr;
-        rand_string(&randomStr);
-        cout << "Random String " << i << ": " << randomStr << endl;
-    }
+    
+    int choice = rand() % CHOICES + 1;
+    string info; // Declare 'info' variable outside the switch statement
+	int id; 
+    for (int i = 0; i < stackSizes * RANDOM_MULTIPLIER; i++) {
+    switch (choice) {
+        case 1:
+        case 2:
+            rand_string(&info);
+            id = rand() % MAX_INT + 1;
+            if (stack.push(id, info)) {
+                cout << "Pushed: ID=" << id << ", Info=" << info << endl;
+            } else {
+                cout << "Overflow error: ID=" << id << " not pushed" << endl;
+            }
+            break;
+        case 3:
+        case 4:
+            // pop
+            try {
+                Data poppedData;
+                stack.pop(poppedData);
+                cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << endl;
+            } catch (const std::exception& e) {
+                cout << "Pop underflow error: " << e.what() << endl;
+            }
+            break;
+        case 5:
+            // peek
+            if (stack.peek(peekedData)) {
+                cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << endl;
+            } else {
+                cout << "Peek underflow error: Stack is empty" << endl;
+            }
+            break;
+        case 6:
+            // isEmpty
+            if (stack.isEmpty()) {
+                cout << "Stack is empty" << endl;
+            } else {
+                cout << "Stack is NOT empty" << endl;
+            }
+            break;
+    	}
+    choice = rand() % CHOICES + 1;
+    cout << endl;
+	}
+    
 
     return 0;
 }
