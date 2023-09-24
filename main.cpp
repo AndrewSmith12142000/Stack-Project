@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
         }
     } else {
         std::cerr << "No stack size argument provided. Please enter an integer for the stack size." << endl;
-        return 1; // Exit with an error code
+        return 1; // Exits the command for no number. Return needed
     }
     
     Stack stack(stackSizes);
@@ -119,20 +119,24 @@ int main(int argc, char **argv) {
 
     // Testing for popping and peeking 
     for (int i = 0; i < MULTIPLIER * STACKSIZE; i++) {
-        if (stack.peek(peekedData)) {
-            cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << endl;
-        } else {
-            cout << "Peek underflow error: Stack is empty" << endl;
-        }
+    	if (!stack.isEmpty()) {
+        	if (stack.peek(peekedData)) {
+            	cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << endl;
+        	} else {
+            	cout << "Peek error" << endl;
+        	}
 
-        try {
-            Data poppedData;
-            stack.pop(poppedData);
-            cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << endl;
-        } catch (const std::exception& e) {
-            cout << "Pop underflow error: " << e.what() << endl;
-        }
-    }
+        	try {
+            	Data poppedData;
+            	stack.pop(poppedData);
+            	cout << "Popped: ID=" << poppedData.id << ", Info=" << poppedData.information << endl;
+        	} catch (const std::exception& e) {
+            	cout << "Pop error: " << e.what() << endl;
+        	}
+    	} else {
+        	cout << "Stack is empty" << endl;
+    	}
+	}	
     std::cout << std::endl;
 
     // Dumping stack output
@@ -182,10 +186,10 @@ int main(int argc, char **argv) {
 	cout << endl;
 	// Generate and push random strings
 	cout << "Generating and pushing random strings:" << endl;
-	cout << "============================================================" << endl;
+	cout << "============================================================" << endl; 			// Not neccessary but I did also do id. I know you said you don't have too but I did it anyways. 
+																								
 	
 	
-
 	for (int i = 0; i < STACKSIZE * MULTIPLIER; i++) {
     	int id = i + 1;
     	string info;
@@ -214,7 +218,6 @@ int main(int argc, char **argv) {
             break;
         case 3:
         case 4:
-            // pop
             try {
                 Data poppedData;
                 stack.pop(poppedData);
@@ -224,7 +227,6 @@ int main(int argc, char **argv) {
             }
             break;
         case 5:
-            // peek
             if (stack.peek(peekedData)) {
                 cout << "Peeked: ID=" << peekedData.id << ", Info=" << peekedData.information << endl;
             } else {
@@ -232,7 +234,6 @@ int main(int argc, char **argv) {
             }
             break;
         case 6:
-            // isEmpty
             if (stack.isEmpty()) {
                 cout << "Stack is empty" << endl;
             } else {
@@ -242,8 +243,8 @@ int main(int argc, char **argv) {
     	}
     choice = rand() % CHOICES + 1;
     cout << endl;
-	}
     
-
+   
+	}
     return 0;
 }
