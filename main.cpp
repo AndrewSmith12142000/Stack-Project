@@ -183,7 +183,7 @@ int main(int argc, char **argv) {
 	for (int i = 0; i < STACKSIZE * MULTIPLIER; i++) {
     	int id = i + 1;
     	string info;
-    	rand_string(&info); // Pass a pointer to a string variable
+    	rand_string(&info); 
     	if (stack.push(id, info)) {
     		cout << "Pushed: ID=" << id << ", Info=" << info << endl;
     	} else {
@@ -199,7 +199,7 @@ int main(int argc, char **argv) {
     
     
     int choice = rand() % CHOICES + 1;
-    string info; // Declare 'info' variable outside the switch statement
+    string info;
 	int id; 
     for (int i = 0; i < stackSizes * RANDOM_MULTIPLIER; i++) {
     switch (choice) {
