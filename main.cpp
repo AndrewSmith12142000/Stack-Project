@@ -107,11 +107,6 @@ int main(int argc, char **argv) {
         cout << "Pop underflow error: " << e.what() << endl;
     }
     cout << endl;
-
-    // Dump stack output
-    cout << "Dumping stack..." << endl;
-    cout << "=====================================================" << endl;
-    stack.dumpStack();
     
       // Empty Test
     cout << "Testing peek and pop, and emptying stack..." << endl;
@@ -138,11 +133,6 @@ int main(int argc, char **argv) {
     	}
 	}	
     std::cout << std::endl;
-
-    // Dumping stack output
-    cout << "Dumping stack..." << endl;
-    cout << "=====================================================" << endl;
-    stack.dumpStack();
 
     // Testing isEmpty
     if (stack.isEmpty()) {
