@@ -6,7 +6,6 @@
  *
  */
 
-
 #include "stack.h"
 #include <iostream>
 
@@ -64,7 +63,7 @@ bool Stack::isEmpty() const {
 }
 
 int Stack::getSize() const {
-    return top + 1;
+    return size + 1;
 }
 
 // This is for debugger for dump
